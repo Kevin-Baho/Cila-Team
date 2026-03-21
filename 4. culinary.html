@@ -195,50 +195,55 @@
         <p class="mt-8 font-bold text-amber-300 tracking-widest uppercase text-sm relative z-10">— Filosofi Kuliner Batak Toba —</p>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-blue-950 text-white py-16 px-6 md:px-12 mt-20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="col-span-1 md:col-span-1">
-                <img src="src/logo.png" alt="Logo" class="h-10 mb-6 brightness-0 invert">
-                <p class="text-sm text-slate-400 leading-relaxed">Portal wisata resmi kawasan Pulau Samosir dan Danau Toba. Keajaiban alam dan budaya Batak Toba untuk dunia.</p>
-            </div>
-            <div>
-                <h4 class="text-lg font-bold mb-6 text-amber-400">Navigasi</h4>
-                <ul class="text-sm space-y-3 opacity-70">
-                    <li><a href="index.html" class="hover:text-amber-400 transition">Home</a></li>
-                    <li><a href="2. map.html" class="hover:text-amber-400 transition">Explore Map</a></li>
-                    <li><a href="3. destinations.html" class="hover:text-amber-400 transition">Destinations</a></li>
-                    <li><a href="4. culinary.html" class="hover:text-amber-400 transition">Culinary</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-bold mb-6 text-amber-400">Destinasi Populer</h4>
-                <ul class="text-sm space-y-3 opacity-70">
-                    <li>Bukit Holbung</li>
-                    <li>Pantai Parbaba</li>
-                    <li>Desa Wisata Tomok</li>
-                    <li>Air Terjun Sipiso-Piso</li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-bold mb-6 text-amber-400">Kontak</h4>
-                <p class="text-sm text-slate-400 leading-loose">
-                    Pulau Samosir, Indonesia<br>
-                    +62 821 6190 6044<br>
-                    info@samosir.id
-                </p>
-            </div>
-        </div>
-        <div class="text-center pt-12 border-t border-white/10 mt-12 text-xs text-slate-500">
-            © 2026 CilaTeam. Semua hak dilindungi. <br>Dibuat untuk memperkenalkan keindahan Batak Toba.
-        </div>
-    </footer>
 
-    <!-- Floating Contact (Modern Style) -->
-    <a href="https://wa.me/6282161906044?text=Halo%20kakak%20Cindy%20Cantik,%20aku%20mau%20bertanya%20nih." class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition-all z-[9999] hover:scale-110 group" target="_blank">
-        <i class="fab fa-whatsapp text-3xl"></i>
-        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 font-bold whitespace-nowrap text-base">Pesan Tour?</span>
-    </a>
+<!-- FOOTER -->
+<footer class="bg-blue-950 text-white py-12 md:py-16 px-6 md:px-12 mt-20 w-full relative">
+    <!-- PERBAIKAN: Menambahkan lg:grid-cols-4 agar responsif di HP(1) -> Tablet(2) -> Laptop(4) -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+        
+        <!-- Kolom 1: Logo & Deskripsi -->
+        <div class="col-span-1">
+            <img src="src/logo.png" alt="Logo" class="h-10 mb-6 brightness-0 invert">
+            <p class="text-sm text-slate-400 leading-relaxed">Portal wisata resmi kawasan Pulau Samosir dan Danau Toba. Keajaiban dunia di jantung Sumatera Utara.</p>
+        </div>
+        
+        <!-- Kolom 2: Navigasi -->
+        <div>
+            <h4 class="text-lg font-bold mb-5 text-orange-400">Navigasi</h4>
+            <ul class="text-sm space-y-3 opacity-80">
+                <li><a href="index.html" class="hover:text-orange-400 transition">Home</a></li>
+                <li><a href="2. map.html" class="hover:text-orange-400 transition">Explore Map</a></li>
+                <li><a href="3. destinations.html" class="hover:text-orange-400 transition">Destinations</a></li>
+                <li><a href="4. culinary.html" class="hover:text-orange-400 transition">Culinary</a></li>
+            </ul>
+        </div>
+        
+        <!-- Kolom 3: Sosial Media -->
+        <div>
+            <h4 class="text-lg font-bold mb-5 text-orange-400">Ikuti Kami</h4>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        
+        <!-- Kolom 4: Kontak -->
+        <div>
+            <h4 class="text-lg font-bold mb-5 text-orange-400">Hubungi Kami</h4>
+            <div class="text-sm text-slate-400 leading-relaxed space-y-2">
+                <p><i class="fas fa-map-marker-alt w-5 text-slate-300"></i> Pulau Samosir, Indonesia</p>
+                <p><i class="fas fa-phone-alt w-5 text-slate-300"></i> +62 821-6190-6044</p>
+                <p><i class="fas fa-envelope w-5 text-slate-300"></i> info@samosir.id</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="max-w-7xl mx-auto text-center pt-8 border-t border-white/10 mt-12 text-xs md:text-sm text-slate-500">
+        © 2026 CilaTeam. Semua hak dilindungi.
+    </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
