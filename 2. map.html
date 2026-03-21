@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Map | Samosir</title>
+    
+    <!-- CSS & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* Styling Popup Map agar selaras dengan desain */
+        .leaflet-popup-content-wrapper { border-radius: 12px; padding: 5px; }
+        .leaflet-popup-content b { color: #1e3a8a; font-size: 14px; display: block; }
+        .leaflet-popup-content small { color: #f97316; font-weight: bold; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 w-full z-[10000] flex justify-between items-center px-6 md:px-12 py-4 bg-white shadow-md">
+        <a href="index.html" class="z-50">
+            <img src="src/logo.png" alt="Logo Samosir" class="h-8 md:h-10">
+        </a>
+
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none z-50">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <div id="nav-links" class="fixed inset-0 bg-white flex flex-col items-center justify-center gap-8 text-lg font-semibold text-blue-900 transition-transform transform translate-x-full md:relative md:inset-auto md:bg-transparent md:flex-row md:translate-x-0 md:text-sm md:gap-6 lg:gap-8">
+            <a href="index.html" class="hover:text-orange-500">Home</a>
+            <a href="2. map.html" class="text-orange-500 underline decoration-2 underline-offset-8">Explore Map</a>
+            <a href="3. destinations.html" class="hover:text-orange-500">Destinations</a>
+            <a href="4. culinary.html" class="hover:text-orange-500">Culinary</a>
+            <a href="5. culture.html" class="hover:text-orange-500">Culture</a>
+            <a href="6. gallery.html" class="hover:text-orange-500">Gallery</a>
+            <a href="7. about.html" class="hover:text-orange-500">About</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="bg-blue-900 text-white pt-32 pb-16 px-6 text-center">
+        <div data-aos="fade-up">
+            <h2 class="text-orange-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">Interactive Experience</h2>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">Explore Pulau Samosir</h1>
+            <p class="text-blue-100 max-w-2xl mx-auto text-sm md:text-base opacity-80">Gunakan peta interaktif di bawah untuk menemukan titik koordinat wisata, sejarah, dan keajaiban alam di jantung Danau Toba.</p>
+        </div>
+    </header>
+
+        <!-- CONTAINER UTAMA UNTUK ISI (MAP & GRID) -->
+        <main class="max-w-7xl mx-auto py-6 px-6">    
+            <!-- INTERACTIVE MAP (Tidak Berubah - Border dan Shadow tetap ada) -->
+            <!DOCTYPE html>
+            <html lang="id">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Samosir Interactive Map</title>
+                
+                <!-- Tailwind CSS CDN -->
+                <script src="https://cdn.tailwindcss.com"></script>
+                
+                <!-- Leaflet CSS -->
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+                
+                <style>
+                    /* Memastikan popup memiliki styling yang rapi */
+                    .leaflet-popup-content b { display: block; color: #1e3a8a; }
+                    .leaflet-control-layers { border: 2px solid #1e3a8a !important; font-weight: bold; }
+                </style>
+            </head>
+            <body class="bg-gray-100 p-10">
+            
+                    <!-- ELEMEN YANG ANDA MINTA (SUDAH DIMODIFIKASI) -->
+                    <div class="w-full">
+                        <div id="map" class="h-[600px] w-full border-4 border-blue-900 rounded-xl overflow-hidden shadow-lg"></div>
+                    </div>
+                        <!-- Peta akan muncul di sini -->
+                    </div>
+            
+                    <p class="text-sm text-gray-600 text-center">*Gunakan ikon di pojok kanan atas peta untuk memfilter lokasi.</p>
+                </div>
+            
+                <!-- Leaflet JS -->
+                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+            
+                <script>
+                    // 1. Inisialisasi Peta
+                    var map = L.map('map').setView([2.6321, 98.7891], 10);
+            
+                    // 2. Tile Layer (OSM)
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap'
+                    }).addTo(map);
+            
+                    // Fungsi Helper Marker
+                    function addLoc(lat, lng, name, cat) {
+                        return L.marker([lat, lng]).bindPopup(`<b>${name}</b><small>${cat}</small>`);
+                    }
+            
+                    // --- DATA SEMUA LOKASI (43 TITIK) ---
+            
+                    // Grup 1: Desa Wisata
+                    var desaGroup = L.layerGroup([
+                        addLoc(2.6592, 98.8569, "Desa Tomok", "Desa Wisata"),
+                        addLoc(2.6853, 98.8344, "Desa Ambarita", "Desa Wisata"),
+                        addLoc(2.6856, 98.8340, "Huta Siallagan", "Desa Wisata"),
+                        addLoc(2.7330, 98.7510, "Desa Simanindo", "Desa Wisata"),
+                        addLoc(2.6773, 98.8512, "Desa Tuktuk Siadong", "Desa Wisata"),
+                        addLoc(2.6480, 98.7180, "Desa Lumban Suhi-Suhi", "Budaya"),
+                        addLoc(2.7325, 98.7505, "Desa Huta Bolon Simanindo", "Budaya"),
+                        addLoc(2.5532, 98.8413, "Desa Garoga", "Desa Wisata")
+                    ]);
+            
+                    // Grup 2: Sejarah
+                    var sejarahGroup = L.layerGroup([
+                        addLoc(2.6580, 98.8575, "Makam Raja Sidabutar", "Sejarah"),
+                        addLoc(2.6854, 98.8345, "Kursi Batu Raja Siallagan", "Sejarah"),
+                        addLoc(2.6853, 98.8344, "Batu Parsidangan Ambarita", "Sejarah"),
+                        addLoc(2.7325, 98.7505, "Museum Huta Bolon Simanindo", "Sejarah"),
+                        addLoc(2.3330, 99.0610, "Museum Batak TB Silalahi Center", "Sejarah")
+                    ]);
+            
+                    // Grup 3: Bukit
+                    var bukitGroup = L.layerGroup([
+                        addLoc(2.5680, 98.6650, "Bukit Holbung", "Bukit"),
+                        addLoc(2.5930, 98.6750, "Bukit Sibea-bea", "Bukit"),
+                        addLoc(2.5510, 98.6500, "Menara Pandang Tele", "Viewpoint"),
+                        addLoc(2.6750, 98.8480, "Bukit Beta", "Bukit"),
+                        addLoc(2.7660, 98.8310, "Bukit Indah Simarjarunjung", "Viewpoint")
+                    ]);
+            
+                    // Grup 4: Pantai
+                    var pantaiGroup = L.layerGroup([
+                        addLoc(2.6470, 98.7040, "Pantai Pasir Putih Parbaba", "Pantai"),
+                        addLoc(2.7380, 98.7410, "Pantai Batu Hoda", "Pantai"),
+                        addLoc(2.6570, 98.7100, "Pantai Indah Situngkir", "Pantai"),
+                        addLoc(2.6950, 98.8040, "Pantai Tandarabun", "Pantai"),
+                        addLoc(2.6280, 98.7230, "Pantai Sibolazi", "Pantai")
+                    ]);
+            
+                    // Grup 5: Air Terjun
+                    var terjunGroup = L.layerGroup([
+                        addLoc(2.5934, 98.6343, "Air Terjun Efrata", "Air Terjun"),
+                        addLoc(2.5935, 98.6340, "Air Terjun Sampuran Efrata", "Air Terjun"),
+                        addLoc(2.4280, 99.1170, "Air Terjun Situmurun", "Air Terjun"),
+                        addLoc(2.4250, 99.1200, "Air Terjun Binangalom", "Air Terjun")
+                    ]);
+            
+                    // Grup 6: Danau Unik
+                    var danauGroup = L.layerGroup([
+                        addLoc(2.5680, 98.7520, "Danau Sidihoni", "Danau"),
+                        addLoc(2.6220, 98.8180, "Danau Aek Natonang", "Danau")
+                    ]);
+            
+                    // Grup 7: Pemandian
+                    var mandiGroup = L.layerGroup([
+                        addLoc(2.6230, 98.6910, "Aek Rangat Pangururan", "Pemandian"),
+                        addLoc(2.6050, 98.6800, "Aek Rangat Rianiate", "Pemandian"),
+                        addLoc(2.6210, 98.6490, "Aek Sipitu Dai", "Mata Air")
+                    ]);
+            
+                    // Grup 8: Religi
+                    var religiGroup = L.layerGroup([
+                        addLoc(2.5925, 98.6745, "Patung Yesus Sibea-bea", "Religi"),
+                        addLoc(2.6235, 98.7130, "Gereja Katolik Pangururan", "Religi"),
+                        addLoc(2.7335, 98.7525, "Gereja HKBP Simanindo", "Religi")
+                    ]);
+            
+                    // Grup 9: Atraksi
+                    var atraksiGroup = L.layerGroup([
+                        addLoc(2.6590, 98.8565, "Pertunjukan Tari Sigale-gale", "Atraksi"),
+                        addLoc(2.7320, 98.7500, "Huta Bolon Batak Museum", "Atraksi")
+                    ]);
+            
+                    // Grup 10: Sekitar
+                    var sekitarGroup = L.layerGroup([
+                        addLoc(2.9170, 98.5200, "Air Terjun Sipiso-piso", "Sekitar"),
+                        addLoc(2.8950, 98.5130, "Bukit Gajah Bobok", "Sekitar"),
+                        addLoc(2.4080, 99.1550, "Taman Eden 100", "Sekitar"),
+                        addLoc(2.3380, 98.8380, "Lembah Bakkara", "Sekitar")
+                    ]);
+            
+                    // Tambahkan grup utama ke peta saat pertama kali dimuat
+                    desaGroup.addTo(map);
+                    bukitGroup.addTo(map);
+            
+                    // Kontrol Layer
+                    var overlays = {
+                        "🏠 Desa & Budaya": desaGroup,
+                        "📜 Wisata Sejarah": sejarahGroup,
+                        "⛰️ Bukit": bukitGroup,
+                        "🏖️ Pantai": pantaiGroup,
+                        "💧 Air Terjun": terjunGroup,
+                        "🌊 wisata danau": danauGroup,
+                        "♨️ Permandian Alam": mandiGroup,
+                        "⛪ Religi": religiGroup,
+                        "🎭 pertunjukan tari": atraksiGroup,
+                        "🗺️ Sekitar Toba": sekitarGroup
+                    };
+            
+                    L.control.layers(null, overlays, {collapsed: false}).addTo(map);
+                </script>
+            </body>
+            </html>
+    
+            <h2 class="section-title">Destinasi Favorit</h2>
+    
+<!-- SECTION DESTINASI -->
+<section class="max-w-7xl mx-auto py-12 px-6">
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 border-b border-slate-200 pb-6">
+        <div>
+            <h2 class="text-3xl font-extrabold text-blue-900 tracking-tight">Destinasi Favorit</h2>
+            <p class="text-slate-500 text-sm mt-1">Temukan keajaiban di setiap sudut Pulau Samosir</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex gap-2">
+            <span class="px-3 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full uppercase">Alam</span>
+            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-bold rounded-full uppercase">Panorama</span>
+            <span class="px-3 py-1 bg-orange-100 text-orange-700 text-[10px] font-bold rounded-full uppercase">Budaya</span>
+        </div>
+    </div>
+
+    <!-- GRID KONTEN -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. Bukit Holbung -->
+        <div data-aos="fade-up" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/bukit_holbung.jpg" alt="Bukit Holbung" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-green-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Alam</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Bukit Holbung</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Samosir Selatan</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2 italic">"Bukit Teletubbies" dengan panorama 360 derajat Danau Toba yang memukau.</p>
+            </div>
+        </div>
+
+        <!-- 2. Air Terjun Efrata -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/air terjun efrata.jpg" alt="Efrata" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-green-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Alam</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Air Terjun Efrata</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Samosir Tengah</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Keindahan air terjun yang melebar seperti tirai perak di tengah tebing hijau.</p>
+            </div>
+        </div>
+
+        <!-- 3. Bukit Sibea-bea -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/sibea-bea.jpg" alt="Sibea-bea" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-blue-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Panorama</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Bukit Sibea-bea</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Samosir Utara</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Ikon baru Samosir dengan jalan berkelok eksotis dan patung Yesus tertinggi.</p>
+            </div>
+        </div>
+
+        <!-- 4. Pantai Parbaba -->
+        <div data-aos="fade-up" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/parbaba.jpg" alt="Parbaba" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-green-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Alam</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Pantai Pasir Putih Parbaba</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Samosir Barat</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Pantai unik di tengah pulau dengan pasir putih dan ombak air tawar yang tenang.</p>
+            </div>
+        </div>
+
+        <!-- 5. Menara Tele -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/menara pandang tele.jpg" alt="Tele" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-blue-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Panorama</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Menara Pandang Tele</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Pangururan</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Titik tertinggi untuk melihat kemegahan kawah Danau Toba dari ketinggian.</p>
+            </div>
+        </div>
+
+        <!-- 6. Desa Tomok -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/Desa Tomok.jpg" alt="Tomok" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-orange-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Budaya</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Desa Wisata Tomok</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Samosir Timur</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Pintu gerbang budaya Samosir dengan pasar souvenir dan pertunjukan Sigale-gale.</p>
+            </div>
+        </div>
+
+        <!-- 7. Makam Sidabutar -->
+        <div data-aos="fade-up" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/makam raja sidabutar.jpg" alt="Makam" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-orange-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Budaya</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Makam Raja Sidabutar</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Tomok</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Kompleks makam batu megah penguasa Tomok yang berusia ratusan tahun.</p>
+            </div>
+        </div>
+
+        <!-- 8. Museum Simanindo -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/museum Simanindo.jpg" alt="Simanindo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-orange-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Budaya</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Museum Simanindo</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Simanindo</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Rumah Bolon asli tempat menyaksikan tarian Tor-Tor dan ritual kuno Batak.</p>
+            </div>
+        </div>
+
+        <!-- 9. Desa Ambarita -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/desa ambarita.jpg" alt="Ambarita" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-orange-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Budaya</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Desa Wisata Ambarita</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Ambarita</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Kampung adat yang terkenal dengan kerajinan tangan dan situs sejarah peninggalan raja.</p>
+            </div>
+        </div>
+
+        <!-- 10. Batu Kursi Siallagan -->
+        <div data-aos="fade-up" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/Batu Persidangan Siallagan.jpg" alt="Siallagan" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-orange-500 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Budaya</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Batu Kursi Persidangan</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Huta Siallagan</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Situs pengadilan kuno suku Batak di bawah pohon suci Hariara.</p>
+            </div>
+        </div>
+
+        <!-- 11. Simarjarunjung -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/bukit Indah Simanjorang.jpg" alt="Simarjarunjung" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-blue-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Panorama</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Bukit Indah Simarjarunjung</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Tepi Danau Toba</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Lokasi terbaik untuk foto Instagramable dengan latar biru Danau Toba yang luas.</p>
+            </div>
+        </div>
+
+        <!-- 12. Sipiso-piso -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+                <img src="src/Map/air terjun sipiso-piso.jpg" alt="Sipiso-piso" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4">
+                    <span class="bg-blue-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Panorama</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 group-hover:text-blue-900 transition-colors">Air Terjun Sipiso-Piso</h3>
+                <div class="flex items-center gap-2 mt-3 text-slate-500">
+                    <i class="fas fa-map-marker-alt text-orange-500 text-sm"></i>
+                    <span class="text-sm font-medium">Merek, Karo</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-2">Salah satu air terjun tertinggi di Indonesia yang langsung jatuh ke arah danau.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-white py-16 px-6 md:px-12 mt-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <img src="src/logo.png" alt="Logo" class="h-10 mb-6 brightness-0 invert">
+                <p class="text-sm text-slate-400 leading-relaxed">Portal wisata resmi kawasan Pulau Samosir dan Danau Toba. Keajaiban dunia di jantung Sumatera Utara.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-orange-400">Navigasi</h4>
+                <ul class="text-sm space-y-3 opacity-70">
+                    <li><a href="index.html" class="hover:text-orange-400 transition">Home</a></li>
+                    <li><a href="2. map.html" class="hover:text-orange-400 transition">Explore Map</a></li>
+                    <li><a href="3. destinations.html" class="hover:text-orange-400 transition">Destinations</a></li>
+                    <li><a href="4. culinary.html" class="hover:text-orange-400 transition">Culinary</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-orange-400">Ikuti Kami</h4>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-orange-400">Hubungi Kami</h4>
+                <p class="text-sm text-slate-400 leading-loose">
+                    Pulau Samosir, Indonesia<br>
+                    +62 821-6190-6044<br>
+                    info@samosir.id
+                </p>
+            </div>
+        </div>
+        <div class="text-center pt-12 border-t border-white/10 mt-12 text-xs text-slate-500">
+            © 2026 CilaTeam. Semua hak dilindungi.
+        </div>
+    </footer>
+
+    <!-- Floating Contact -->
+    <a href="https://wa.me/6282161906044?text=Halo%20kawan%20,..." class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition-all z-[9999] hover:scale-110 group" target="_blank">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-bold whitespace-nowrap text-sm">Ada Pertanyaan?</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // MOBILE MENU LOGIC
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('translate-x-full');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // LEAFLET MAP LOGIC
+        var map = L.map('map').setView([2.6321, 98.7891], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        function addLoc(lat, lng, name, cat) {
+            return L.marker([lat, lng]).bindPopup(`<b>${name}</b><small>${cat}</small>`);
+        }
+
+        // Grup Marker (Hanya beberapa contoh, Anda bisa tambahkan kembali lengkapnya)
+        var desaGroup = L.layerGroup([
+            addLoc(2.6592, 98.8569, "Desa Tomok", "Desa Wisata"),
+            addLoc(2.6853, 98.8344, "Desa Ambarita", "Desa Wisata")
+        ]).addTo(map);
+
+        var bukitGroup = L.layerGroup([
+            addLoc(2.5680, 98.6650, "Bukit Holbung", "Bukit"),
+            addLoc(2.5930, 98.6750, "Bukit Sibea-bea", "Bukit")
+        ]).addTo(map);
+
+        var overlays = {
+            "🏠 Desa & Budaya": desaGroup,
+            "⛰️ Bukit & Panorama": bukitGroup
+        };
+
+        L.control.layers(null, overlays, {collapsed: window.innerWidth < 768}).addTo(map);
+    </script>
+</body>
+</html>

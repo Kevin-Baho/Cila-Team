@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Samosir | Portal Wisata Danau Toba</title>
+    
+    <!-- CSS & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden; /* Memastikan tidak ada scroll menyamping */
+            width: 100%;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 10px; }
+
+        /* Smooth Navbar Transition */
+        #navbar { transition: all 0.4s ease-in-out; }
+        .nav-link { transition: color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 w-full z-[10000] flex justify-between items-center px-6 md:px-12 py-6 bg-transparent">
+        <a href="index.html" class="z-50">
+            <img src="src/logo.png" alt="Logo Samosir" id="nav-logo" class="h-8 md:h-10 brightness-0 invert transition-all duration-300">
+        </a>
+        
+        <!-- Hamburger Menu -->
+        <button id="menu-btn" class="text-white z-50 md:hidden focus:outline-none transition-colors duration-300">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <div id="nav-links" class="fixed inset-0 bg-blue-950 flex flex-col items-center justify-center gap-8 text-xl font-semibold text-white transition-transform transform translate-x-full md:relative md:inset-auto md:bg-transparent md:flex-row md:translate-x-0 md:text-sm lg:text-base md:gap-6 lg:gap-8 w-full md:w-auto">
+            <a href="index.html" class="nav-link text-orange-400 font-bold underline decoration-2 underline-offset-8">Home</a>
+            <a href="2. map.html" class="nav-link text-white hover:text-orange-400">Explore Map</a>
+            <a href="3. destinations.html" class="nav-link text-white hover:text-orange-400">Destinations</a>
+            <a href="4. culinary.html" class="nav-link text-white hover:text-orange-400">Culinary</a>
+            <a href="5. culture.html" class="nav-link text-white hover:text-orange-400">Culture</a>
+            <a href="6. gallery.html" class="nav-link text-white hover:text-orange-400">Gallery</a>
+            <a href="7. about.html" class="nav-link text-white hover:text-orange-400">About</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative h-screen flex flex-col justify-center items-center text-center px-4 md:px-6 overflow-hidden w-full">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 w-full">
+            <img src="src/Home/Danau_toba3.jpg" alt="Danau Toba" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-blue-950/80 via-blue-900/60 to-slate-900/80"></div>
+        </div>
+        
+        <div class="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center mt-12">
+            <div data-aos="fade-down" class="px-4 py-1.5 md:px-5 md:py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8 text-orange-400 shadow-lg">
+                Explore Samosir Island
+            </div>
+            
+            <h1 data-aos="zoom-in" class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 md:mb-6 leading-tight text-white drop-shadow-2xl">
+                Discover the Beauty<br>
+                <span class="text-orange-400">& Culture of</span><br>
+                Danau Toba
+            </h1>
+            
+            <p data-aos="fade-up" class="max-w-2xl text-xs sm:text-sm md:text-lg mb-8 md:mb-12 text-blue-100 font-medium leading-relaxed drop-shadow-md px-4">
+                Jelajahi keajaiban alam, warisan magis budaya Batak Toba, dan cita rasa kuliner tradisional di jantung danau vulkanik terbesar di dunia.
+            </p>
+            
+            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-6">
+                <a href="3. destinations.html" class="bg-orange-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-orange-600 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                    Mulai Penjelajahan <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="2. map.html" class="border border-white/30 bg-white/10 backdrop-blur-md text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fas fa-map-marked-alt text-orange-400"></i> Peta Interaktif
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 animate-bounce text-white/50">
+            <i class="fas fa-chevron-down text-xl md:text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- STATISTIK SINGKAT (Telah diperbaiki untuk HP) -->
+    <section class="relative z-20 w-full bg-blue-900 text-white py-10 md:py-12 px-4 md:px-12 -mt-2 shadow-2xl border-b-4 border-orange-500">
+        <!-- Mengurangi ukuran gap dan font pada HP agar muat -->
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center divide-x divide-white/10">
+            <div data-aos="fade-up">
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-400 mb-1 md:mb-2">1,265</h3>
+                <p class="text-[9px] sm:text-[10px] md:text-sm font-bold opacity-80 uppercase tracking-wider md:tracking-widest">Km² Luas Pulau</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-400 mb-1 md:mb-2">905</h3>
+                <p class="text-[9px] sm:text-[10px] md:text-sm font-bold opacity-80 uppercase tracking-wider md:tracking-widest">MDPL (Ketinggian)</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-400 mb-1 md:mb-2">450+</h3>
+                <p class="text-[9px] sm:text-[10px] md:text-sm font-bold opacity-80 uppercase tracking-wider md:tracking-widest">Tahun Sejarah</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-400 mb-1 md:mb-2">40+</h3>
+                <p class="text-[9px] sm:text-[10px] md:text-sm font-bold opacity-80 uppercase tracking-wider md:tracking-widest">Titik Destinasi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEJARAH & CERITA (Telah diperbaiki untuk HP) -->
+    <section class="py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+        <div class="flex flex-col lg:flex-row gap-10 md:gap-16 items-center">
+            
+            <div data-aos="fade-right" class="w-full lg:w-1/2 relative">
+                <!-- Aksen Latar Belakang disembunyikan di HP agar tidak meluber -->
+                <div class="hidden md:block absolute -top-4 -left-4 w-32 h-32 bg-orange-200 rounded-3xl -z-10"></div>
+                <div class="hidden md:block absolute -bottom-4 -right-4 w-32 h-32 bg-blue-200 rounded-3xl -z-10"></div>
+                
+                <div class="rounded-3xl shadow-2xl overflow-hidden relative group w-full">
+                    <img src="src/Home/Danau_toba2.jpg" alt="Danau Toba" class="w-full h-[300px] md:h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent"></div>
+                    <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 text-white">
+                        <span class="bg-orange-500 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg mb-2 inline-block">Fakta</span>
+                        <p class="font-bold text-base md:text-lg">Kaldera Terbesar di Dunia</p>
+                    </div>
+                </div>
+            </div>
+
+            <div data-aos="fade-left" class="w-full lg:w-1/2">
+                <p class="text-orange-500 font-bold uppercase text-xs tracking-widest mb-2 md:mb-3">Sejarah & Legenda</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 text-blue-950 leading-tight">Kisah di Balik<br>Megahnya Danau Toba</h2>
+                
+                <div class="space-y-4 md:space-y-6">
+                    <div class="p-6 md:p-8 border border-slate-100 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl md:rounded-3xl relative overflow-hidden w-full">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-orange-500"></div>
+                        <h4 class="font-bold text-lg md:text-xl mb-2 md:mb-3 text-slate-800"><i class="fas fa-book-open text-orange-500 mr-2"></i> Legenda Rakyat</h4>
+                        <p class="text-slate-600 text-xs md:text-base leading-relaxed text-justify">Menurut legenda Batak, seorang pemuda bernama Toba melanggar janji pada istrinya (jelmaan ikan ajaib) dengan membentak putra mereka, Samosir. Sang ibu menangis hingga memicu air bah yang menciptakan danau besar, dan Samosir berlindung menjadi pulau di tengahnya.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-900 to-blue-950 text-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl hover:-translate-y-1 transition-transform duration-300 w-full">
+                        <h4 class="font-bold text-lg md:text-xl mb-2"><i class="fas fa-microscope text-blue-400 mr-2"></i> Fakta Geologis</h4>
+                        <p class="text-blue-100 text-xs md:text-base leading-relaxed text-justify">Secara ilmiah, Danau Toba terbentuk dari letusan <span class="text-orange-400 font-bold">supervolcano sekitar 74.000 tahun lalu</span>. Letusan dahsyat ini mengubah iklim global dan menciptakan kaldera raksasa dengan kedalaman mencapai 505 meter.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT BUDAYA -->
+    <section class="py-16 md:py-24 bg-slate-100 px-6 md:px-12 w-full">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10 md:mb-16" data-aos="fade-up">
+                <p class="text-orange-500 font-bold uppercase text-xs tracking-widest mb-2">Esensi Samosir</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-blue-950">Jantung Budaya Batak</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" class="group bg-white rounded-2xl md:rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative h-48 md:h-60 overflow-hidden">
+                        <img src="src/Home/rumah adat.jpg" alt="Rumah Adat" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4"><span class="bg-amber-600 text-white text-[9px] md:text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Arsitektur</span></div>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow">
+                        <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3 text-slate-800 group-hover:text-amber-600 transition-colors">Rumah Bolon</h4>
+                        <p class="text-slate-600 text-xs md:text-sm leading-relaxed text-justify">Arsitektur tradisional megah tanpa paku dengan atap pelana tinggi dan ukiran Gorga tiga warna yang sarat makna spiritual perlindungan kehidupan.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="group bg-white rounded-2xl md:rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative h-48 md:h-60 overflow-hidden">
+                        <img src="src/Home/ulos.jpg" alt="Kain Ulos" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4"><span class="bg-red-600 text-white text-[9px] md:text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Kain Tradisional</span></div>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow">
+                        <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3 text-slate-800 group-hover:text-red-600 transition-colors">Kain Tenun Ulos</h4>
+                        <p class="text-slate-600 text-xs md:text-sm leading-relaxed text-justify">Simbol utama kekerabatan Batak. Diberikan sebagai media penyalur berkat, doa, dan kehangatan kasih sayang dalam siklus kehidupan manusia.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="group bg-white rounded-2xl md:rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative h-48 md:h-60 overflow-hidden">
+                        <img src="src/Home/masyarakat batak toba.jpg" alt="Suku Batak" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4"><span class="bg-blue-600 text-white text-[9px] md:text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Masyarakat</span></div>
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow">
+                        <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3 text-slate-800 group-hover:text-blue-600 transition-colors">Dalihan Na Tolu</h4>
+                        <p class="text-slate-600 text-xs md:text-sm leading-relaxed text-justify">Filosofi "tungku tiga batu" yang mengatur sistem sosial kekerabatan masyarakat Batak Toba untuk menciptakan harmoni, saling menghormati, dan gotong royong.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 md:mt-12" data-aos="fade-up">
+                <a href="5. culture.html" class="inline-block border-2 border-blue-900 text-blue-900 px-6 py-2.5 md:px-8 md:py-3 rounded-full font-bold text-sm md:text-base hover:bg-blue-900 hover:text-white transition-colors duration-300">Pelajari Budaya Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRID MENU / EKSPLORASI -->
+    <section class="py-16 md:py-24 bg-white px-6 md:px-12 w-full">
+        <div class="max-w-7xl mx-auto">
+            <div data-aos="fade-up" class="text-center mb-10 md:mb-16">
+                <p class="text-orange-500 font-bold uppercase text-xs tracking-widest mb-2">Navigasi Utama</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-blue-950">Mulai Petualanganmu</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Destinasi -->
+                <a href="3. destinations.html" data-aos="zoom-in" data-aos-delay="0" class="group bg-slate-50 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:bg-blue-900 transition-all duration-500 block text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-white/20 group-hover:text-white transition-all">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h4 class="font-bold text-lg md:text-xl text-slate-800 group-hover:text-white mb-2">Destinasi</h4>
+                    <p class="text-xs md:text-sm text-slate-500 group-hover:text-blue-200 mb-4 md:mb-6">Bukit, air terjun, dan pantai eksotis menanti.</p>
+                    <span class="text-orange-500 font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-orange-300">Jelajahi <i class="fas fa-arrow-right ml-1"></i></span>
+                </a>
+
+                <!-- Peta -->
+                <a href="2. map.html" data-aos="zoom-in" data-aos-delay="100" class="group bg-slate-50 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:bg-blue-900 transition-all duration-500 block text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-white/20 group-hover:text-white transition-all">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg md:text-xl text-slate-800 group-hover:text-white mb-2">Peta Interaktif</h4>
+                    <p class="text-xs md:text-sm text-slate-500 group-hover:text-blue-200 mb-4 md:mb-6">Temukan lokasi wisata dengan mudah.</p>
+                    <span class="text-orange-500 font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-orange-300">Buka Peta <i class="fas fa-arrow-right ml-1"></i></span>
+                </a>
+
+                <!-- Kuliner -->
+                <a href="4. culinary.html" data-aos="zoom-in" data-aos-delay="200" class="group bg-slate-50 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:bg-blue-900 transition-all duration-500 block text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-white/20 group-hover:text-white transition-all">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4 class="font-bold text-lg md:text-xl text-slate-800 group-hover:text-white mb-2">Kuliner Lokal</h4>
+                    <p class="text-xs md:text-sm text-slate-500 group-hover:text-blue-200 mb-4 md:mb-6">Cicipi kelezatan rempah khas Batak Toba.</p>
+                    <span class="text-orange-500 font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-orange-300">Cicipi <i class="fas fa-arrow-right ml-1"></i></span>
+                </a>
+
+                <!-- Galeri -->
+                <a href="6. gallery.html" data-aos="zoom-in" data-aos-delay="300" class="group bg-slate-50 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:bg-blue-900 transition-all duration-500 block text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-white/20 group-hover:text-white transition-all">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h4 class="font-bold text-lg md:text-xl text-slate-800 group-hover:text-white mb-2">Galeri Foto</h4>
+                    <p class="text-xs md:text-sm text-slate-500 group-hover:text-blue-200 mb-4 md:mb-6">Koleksi momen visual terbaik Samosir.</p>
+                    <span class="text-orange-500 font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-orange-300">Lihat <i class="fas fa-arrow-right ml-1"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORAS CTA SECTION -->
+    <section class="relative py-20 md:py-32 px-6 text-center text-white overflow-hidden w-full">
+        <div class="absolute inset-0 z-0 bg-fixed bg-center bg-cover" style="background-image: url('src/Home/Danau_toba.jpg');"></div>
+        <div class="absolute inset-0 bg-blue-950/80 z-10"></div>
+        
+        <div class="relative z-20 max-w-4xl mx-auto">
+            <h2 data-aos="zoom-in" class="text-4xl md:text-7xl font-extrabold mb-4 md:mb-6 tracking-widest">HORAS!</h2>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-sm md:text-2xl font-serif italic mb-8 md:mb-10 text-blue-100 leading-relaxed px-4">"Selamat Datang di Jantung Budaya Batak Toba. Keindahan magis, keramahan warga, dan kehangatan Samosir menanti kedatangan Anda."</p>
+            <a data-aos="fade-up" data-aos-delay="200" href="2. map.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-base transition-all shadow-xl shadow-orange-500/30 transform hover:-translate-y-1">
+                <i class="fas fa-plane-departure mr-2"></i> Rencanakan Perjalanan Anda
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-white py-12 md:py-16 px-6 md:px-12 border-t border-blue-900 w-full">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <img src="src/logo.png" alt="Logo" class="h-8 md:h-10 mb-4 md:mb-6 brightness-0 invert">
+                <p class="text-xs md:text-sm text-slate-400 leading-relaxed">Portal wisata resmi kawasan Pulau Samosir dan Danau Toba. Keajaiban alam dan budaya Batak Toba untuk dunia.</p>
+            </div>
+            <div>
+                <h4 class="text-base md:text-lg font-bold mb-4 md:mb-6 text-orange-400">Navigasi</h4>
+                <ul class="text-xs md:text-sm space-y-2 md:space-y-3 opacity-70">
+                    <li><a href="index.html" class="hover:text-orange-400 transition">Home</a></li>
+                    <li><a href="2. map.html" class="hover:text-orange-400 transition">Explore Map</a></li>
+                    <li><a href="3. destinations.html" class="hover:text-orange-400 transition">Destinations</a></li>
+                    <li><a href="4. culinary.html" class="hover:text-orange-400 transition">Culinary</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base md:text-lg font-bold mb-4 md:mb-6 text-orange-400">Destinasi Populer</h4>
+                <ul class="text-xs md:text-sm space-y-2 md:space-y-3 opacity-70">
+                    <li>Bukit Holbung</li>
+                    <li>Pantai Parbaba</li>
+                    <li>Desa Wisata Tomok</li>
+                    <li>Bukit Sibea-bea</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-base md:text-lg font-bold mb-4 md:mb-6 text-orange-400">Kontak</h4>
+                <p class="text-xs md:text-sm text-slate-400 leading-loose">
+                    Pulau Samosir, Indonesia<br>
+                    +62 62 821 6190 6044<br>
+                    info@samosir.id
+                </p>
+            </div>
+        </div>
+        <div class="text-center pt-8 md:pt-12 border-t border-white/10 mt-8 md:mt-12 text-[10px] md:text-xs text-slate-500">
+            © 2026 CilaTeam. Semua hak dilindungi. <br>Dibuat untuk memperkenalkan keindahan Batak Toba.
+        </div>
+    </footer>
+
+    <!-- Floating Contact -->
+    <a href="https://wa.me/6282161906044?text=Halo%20kawan%20,..." class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition-all z-[9999] hover:scale-110 group" target="_blank">
+        <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 font-bold whitespace-nowrap text-sm md:text-base">Tanya Kami?</span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        const navbar = document.getElementById('navbar');
+        const navLogo = document.getElementById('nav-logo');
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinksContainer = document.getElementById('nav-links');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Toggle Mobile Menu
+        menuBtn.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('translate-x-full');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+            
+            if(window.scrollY <= 50) {
+                if(!navLinksContainer.classList.contains('translate-x-full')) {
+                    menuBtn.classList.replace('text-white', 'text-blue-900');
+                } else {
+                    menuBtn.classList.replace('text-blue-900', 'text-white');
+                }
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.add('translate-x-full');
+                menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-3', 'md:py-4');
+                navbar.classList.remove('bg-transparent', 'py-6');
+                navLogo.classList.remove('brightness-0', 'invert');
+                menuBtn.classList.remove('text-white');
+                menuBtn.classList.add('text-slate-800');
+                
+                navLinks.forEach(l => {
+                    if (!l.classList.contains('text-orange-400')) {
+                        l.classList.remove('text-white');
+                        l.classList.add('text-slate-800');
+                    }
+                });
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-3', 'md:py-4');
+                navbar.classList.add('bg-transparent', 'py-6');
+                navLogo.classList.add('brightness-0', 'invert');
+                
+                if(navLinksContainer.classList.contains('translate-x-full')) {
+                    menuBtn.classList.add('text-white');
+                    menuBtn.classList.remove('text-slate-800');
+                }
+                
+                navLinks.forEach(l => {
+                    if (!l.classList.contains('text-orange-400')) {
+                        l.classList.add('text-white');
+                        l.classList.remove('text-slate-800');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

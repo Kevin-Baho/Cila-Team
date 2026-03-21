@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture & Festival | Samosir</title>
+    
+    <!-- CSS & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #b91c1c; border-radius: 10px; } /* Warna merah khas ulos Batak */
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 w-full z-[10000] flex justify-between items-center px-6 md:px-12 py-4 bg-white shadow-md transition-all duration-300">
+        <a href="index.html" class="z-50">
+            <img src="src/logo.png" alt="Logo Samosir" class="h-8 md:h-10">
+        </a>
+
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none z-50">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <div id="nav-links" class="fixed inset-0 bg-white flex flex-col items-center justify-center gap-8 text-lg font-semibold text-blue-900 transition-transform transform translate-x-full md:relative md:inset-auto md:bg-transparent md:flex-row md:translate-x-0 md:text-sm md:gap-6 lg:gap-8">
+            <a href="index.html" class="hover:text-red-600 transition">Home</a>
+            <a href="2. map.html" class="hover:text-red-600 transition">Explore Map</a>
+            <a href="3. destinations.html" class="hover:text-red-600 transition">Destinations</a>
+            <a href="4. culinary.html" class="hover:text-red-600 transition">Culinary</a>
+            <a href="5. culture.html" class="text-red-600 underline decoration-2 underline-offset-8 transition">Culture</a>
+            <a href="6. gallery.html" class="hover:text-red-600 transition">Gallery</a>
+            <a href="7. about.html" class="hover:text-red-600 transition">About</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-slate-900 text-white pt-32 pb-24 px-6 text-center relative overflow-hidden">
+        <!-- Ornamen Latar Belakang (Opsional) -->
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+        
+        <div class="relative z-10" data-aos="fade-up">
+            <p class="text-red-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">Warisan Leluhur</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">Culture & Festival</h1>
+            <p class="text-blue-100 max-w-2xl mx-auto text-sm md:text-base opacity-90 leading-relaxed">Jelajahi kekayaan tradisi, seni magis, dan festival budaya masyarakat Batak Toba yang telah lestari menjaga harmoni Danau Toba selama berabad-abad.</p>
+        </div>
+    </header>
+
+    <!-- UNSUR BUDAYA SECTION -->
+    <section class="max-w-7xl mx-auto py-16 px-6 -mt-12 relative z-10">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-red-600 font-bold text-xs uppercase tracking-widest mb-2">Unsur Budaya</h2>
+            <h3 class="text-3xl font-extrabold text-blue-950">Kekayaan Tradisi Batak Toba</h3>
+        </div>
+        
+        <!-- Grid 6 Card Unsur Budaya -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1 -->
+            <div data-aos="fade-up" data-aos-delay="0" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 group relative overflow-hidden">
+                <div class="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+                    <i class="fas fa-hands"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-3 text-slate-800">Tari Tor-Tor</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Tarian sakral khas Batak Toba yang diiringi alat musik gondang. Gerakan tangannya yang mengalir memiliki makna spiritual dan digunakan dalam berbagai upacara adat.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 group relative overflow-hidden">
+                <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
+                    <i class="fas fa-drum"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-3 text-slate-800">Gondang Sabangunan</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Seperangkat alat musik tradisional Batak yang terdiri dari taganing, gordang, ogung, sarune, dan hesek. Ansambel musik ini wajib mengiringi tarian Tor-Tor.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 group relative overflow-hidden">
+                <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-3 text-slate-800">Dalihan Na Tolu</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Sistem kekerabatan (tungku berkaki tiga) terdiri dari Hula-hula, Dongan Tubu, dan Boru. Sistem ini mengatur harmoni seluruh aspek kehidupan sosial Batak.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div data-aos="fade-up" data-aos-delay="0" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 group relative overflow-hidden">
+                <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+                    <i class="fas fa-masks-theater"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-3 text-slate-800">Sigale-Gale</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Boneka kayu legendaris dari Tomok yang bisa menari layaknya manusia. Dibuat oleh seorang raja untuk menggantikan putranya yang gugur di medan perang.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 group relative overflow-hidden">
+                <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-3 text-slate-800">Kain Ulos</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Kain tenun sakral simbol budaya Batak. Diberikan sebagai pemberkatan dalam adat, melambangkan kehangatan, kasih sayang, dan doa untuk kehidupan.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 group relative overflow-hidden">
+                <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-3 text-slate-800">Marga & Tarombo</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Marga adalah nama keluarga patrilineal, sedangkan Tarombo adalah silsilah leluhur. Keduanya menjadi identitas utama dan penentu interaksi sosial orang Batak.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KALENDER BUDAYA / FESTIVAL SECTION -->
+    <section class="bg-blue-950 py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-red-400 font-bold text-xs uppercase tracking-widest mb-2">Kalender Event</h2>
+                <h3 class="text-3xl font-extrabold text-white">Festival & Acara Budaya</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Festival 1 -->
+                <div data-aos="fade-up" class="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="src/Festival/festifal danau toba.jpg" alt="Festival Danau Toba" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Event Tahunan</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-red-600 transition-colors">Festival Danau Toba</h4>
+                        <p class="text-sm text-slate-600 mt-3 leading-relaxed">Festival terbesar di Sumatera Utara. Menampilkan karnaval ulos, lomba perahu naga (solu bolon), dan pameran kerajinan khas Samosir.</p>
+                        
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                            <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                                <i class="far fa-calendar-alt text-red-500 text-sm"></i>
+                                September - Oktober
+                            </div>
+                            <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                                <i class="fas fa-map-marker-alt text-red-500 text-sm"></i>
+                                Parapat & Pulau Samosir
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Festival 2 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="src/Festival/tor-tor sigale gale.jpg" alt="Pesta Tor-Tor Sigale-Gale" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Pertunjukan Adat</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-red-600 transition-colors">Pesta Tor-Tor Sigale-Gale</h4>
+                        <p class="text-sm text-slate-600 mt-3 leading-relaxed">Menyaksikan langsung magisnya boneka kayu yang menari diiringi ratapan dan musik gondang, sebuah ritus sakral penghormatan leluhur.</p>
+                        
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                            <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                                <i class="far fa-calendar-alt text-red-500 text-sm"></i>
+                                Sepanjang Tahun
+                            </div>
+                            <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                                <i class="fas fa-map-marker-alt text-red-500 text-sm"></i>
+                                Desa Wisata Tomok
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Festival 3 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="src/Festival/pesta budaya batak.jpg" alt="Horas! Pesta Budaya" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Pesta Rakyat</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h4 class="text-xl font-bold text-slate-800 group-hover:text-red-600 transition-colors">Horas! Pesta Budaya Batak</h4>
+                        <p class="text-sm text-slate-600 mt-3 leading-relaxed">Perayaan budaya imersif dengan partisipasi warga lokal. Wisatawan diajak manortor (menari) bersama menggunakan ulos sambil mencicipi kuliner khas.</p>
+                        
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                            <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                                <i class="far fa-calendar-alt text-red-500 text-sm"></i>
+                                Juni & Desember
+                            </div>
+                            <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                                <i class="fas fa-map-marker-alt text-red-500 text-sm"></i>
+                                Museum Simanindo
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-900 text-white py-16 px-6 md:px-12 border-t border-blue-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <img src="src/logo.png" alt="Logo" class="h-10 mb-6 brightness-0 invert">
+                <p class="text-sm text-slate-300 leading-relaxed">Portal wisata resmi kawasan Pulau Samosir dan Danau Toba. Keajaiban alam dan budaya Batak Toba untuk dunia.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-red-400">Navigasi</h4>
+                <ul class="text-sm space-y-3 opacity-80">
+                    <li><a href="index.html" class="hover:text-red-400 transition">Home</a></li>
+                    <li><a href="2. map.html" class="hover:text-red-400 transition">Explore Map</a></li>
+                    <li><a href="3. destinations.html" class="hover:text-red-400 transition">Destinations</a></li>
+                    <li><a href="4. culinary.html" class="hover:text-red-400 transition">Culinary</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-red-400">Destinasi Populer</h4>
+                <ul class="text-sm space-y-3 opacity-80">
+                    <li>Bukit Holbung</li>
+                    <li>Pantai Parbaba</li>
+                    <li>Desa Wisata Tomok</li>
+                    <li>Museum Simanindo</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-red-400">Kontak</h4>
+                <p class="text-sm text-slate-300 leading-loose">
+                    Pulau Samosir, Indonesia<br>
+                    +62 821 6190 6044<br>
+                    info@samosir.id
+                </p>
+            </div>
+        </div>
+        <div class="text-center pt-12 border-t border-blue-800 mt-12 text-xs text-slate-400">
+            © 2026 CilaTeam. Semua hak dilindungi. <br>Dibuat untuk memperkenalkan keindahan Batak Toba.
+        </div>
+    </footer>
+
+    <!-- Floating Contact (Modern Style) -->
+    <a href="https://wa.me/6282161906044?text=Halo%20kawan%20,..." class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition-all z-[9999] hover:scale-110 group" target="_blank">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 font-bold whitespace-nowrap text-base">Hubungi Kami</span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS Animations
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('translate-x-full');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
+</body>
+</html>
