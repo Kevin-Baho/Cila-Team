@@ -21,7 +21,7 @@
         ::-webkit-scrollbar-thumb { background: #d97706; border-radius: 10px; } /* Warna amber untuk kuliner */
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 overflow-x-hidden">
+<body class="bg-slate-50 text-slate-800 overflow-x-hidden relative">
 
     <!-- NAVBAR -->
     <nav id="navbar" class="fixed top-0 w-full z-[10000] flex justify-between items-center px-6 md:px-12 py-4 bg-white shadow-md transition-all duration-300">
@@ -97,7 +97,7 @@
                     <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-3">Ikan mas bumbu kuning khas Batak yang dimasak perlahan hingga kering dengan bumbu andaliman, asam cikala, dan bawang Batak. Rasanya gurih, asam, dan pedas getir.</p>
                 </div>
                 <div class="px-6 pb-6">
-                    <button class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
+                    <button onclick="openModal('arsik')" class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
                 </div>
             </div>
 
@@ -113,12 +113,12 @@
                     <h3 class="text-xl font-bold text-slate-800 group-hover:text-amber-600 transition-colors">Saksang</h3>
                     <div class="flex items-center gap-2 mt-2 text-slate-500">
                         <i class="fas fa-utensils text-orange-500 text-sm"></i>
-                        <span class="text-sm font-medium">Sajian Adat (Non-Halal)</span>
+                        <span class="text-sm font-medium">Sajian Adat</span>
                     </div>
-                    <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-3">Masakan daging khas Batak yang dimasak dengan darah, santan, dan ketumbar serta rempah andaliman. Hidangan wajib yang selalu hadir di setiap perayaan seremonial Batak.</p>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-3">Saksang adalah masakan khas Batak yang terbuat dari daging babi (atau kadang anjing/kerbau) yang dicincang kecil dan dimasak dengan rempah-rempah serta santan. Keunikan saksang terletak pada penggunaan andaliman yang kuat.</p>
                 </div>
                 <div class="px-6 pb-6">
-                    <button class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
+                    <button onclick="openModal('saksang')" class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
                 </div>
             </div>
 
@@ -131,15 +131,15 @@
                     </div>
                 </div>
                 <div class="p-6 flex-grow">
-                    <h3 class="text-xl font-bold text-slate-800 group-hover:text-amber-600 transition-colors">Dengke Naniura</h3>
+                    <h3 class="text-xl font-bold text-slate-800 group-hover:text-amber-600 transition-colors">Dekke Naniura</h3>
                     <div class="flex items-center gap-2 mt-2 text-slate-500">
                         <i class="fas fa-crown text-orange-500 text-sm"></i>
                         <span class="text-sm font-medium">Sajian Raja Batak</span>
                     </div>
-                    <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-3">Sashimi ala Batak. Ikan mas segar yang tidak dimasak dengan api, melainkan "dimatangkan" menggunakan fermentasi asam jungga dan racikan rempah super lengkap.</p>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-3">Sering disebut sebagai 'Sashimi-nya Batak'. Naniura adalah ikan mas yang 'dimasak' bukan dengan api, melainkan dengan asam jungga yang sangat asam sehingga protein ikan menjadi padat dan matang secara kimiawi.</p>
                 </div>
                 <div class="px-6 pb-6">
-                    <button class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
+                    <button onclick="openModal('naniura')" class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
                 </div>
             </div>
 
@@ -160,7 +160,7 @@
                     <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-3">Mie lidi tebal yang kenyal disiram dengan kuah kaldu bersantan, kaya akan bumbu kari dan andaliman. Nama "gomak" berasal dari cara penyajiannya yang digenggam dengan tangan.</p>
                 </div>
                 <div class="px-6 pb-6">
-                    <button class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
+                    <button onclick="openModal('mie gomak')" class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
                 </div>
             </div>
 
@@ -181,7 +181,7 @@
                     <p class="mt-4 text-sm text-slate-600 leading-relaxed line-clamp-3">Olahan susu kerbau segar yang dimasak hingga menggumpal menyerupai keju lembut, biasanya dibumbui dengan sari daun pepaya dan rempah kuning. Sangat gurih dan alami.</p>
                 </div>
                 <div class="px-6 pb-6">
-                    <button class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
+                    <button onclick="openModal('dali ni horbo')" class="w-full py-3 bg-slate-50 hover:bg-amber-600 hover:text-white rounded-xl text-sm font-bold text-slate-700 transition-all duration-300">Lihat Resep / Detail</button>
                 </div>
             </div>
 
@@ -195,63 +195,114 @@
         <p class="mt-8 font-bold text-amber-300 tracking-widest uppercase text-sm relative z-10">— Filosofi Kuliner Batak Toba —</p>
     </section>
 
-
-<!-- FOOTER -->
-<footer class="bg-blue-950 text-white py-12 md:py-16 px-6 md:px-12 mt-20 w-full relative">
-    <!-- PERBAIKAN: Menambahkan lg:grid-cols-4 agar responsif di HP(1) -> Tablet(2) -> Laptop(4) -->
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
-        
-        <!-- Kolom 1: Logo & Deskripsi -->
-        <div class="col-span-1">
-            <img src="src/logo.png" alt="Logo" class="h-10 mb-6 brightness-0 invert">
-            <p class="text-sm text-slate-400 leading-relaxed">Portal wisata resmi kawasan Pulau Samosir dan Danau Toba. Keajaiban dunia di jantung Sumatera Utara.</p>
-        </div>
-        
-        <!-- Kolom 2: Navigasi -->
-        <div>
-            <h4 class="text-lg font-bold mb-5 text-orange-400">Navigasi</h4>
-            <ul class="text-sm space-y-3 opacity-80">
-                <li><a href="index.html" class="hover:text-orange-400 transition">Home</a></li>
-                <li><a href="2. map.html" class="hover:text-orange-400 transition">Explore Map</a></li>
-                <li><a href="3. destinations.html" class="hover:text-orange-400 transition">Destinations</a></li>
-                <li><a href="4. culinary.html" class="hover:text-orange-400 transition">Culinary</a></li>
-            </ul>
-        </div>
-        
-        <!-- Kolom 3: Sosial Media -->
-        <div>
-            <h4 class="text-lg font-bold mb-5 text-orange-400">Ikuti Kami</h4>
-            <div class="flex gap-4">
-                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-youtube"></i></a>
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-white py-12 md:py-16 px-6 md:px-12 mt-20 w-full relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+            <!-- Kolom 1: Logo & Deskripsi -->
+            <div class="col-span-1">
+                <img src="src/logo.png" alt="Logo" class="h-10 mb-6 brightness-0 invert">
+                <p class="text-sm text-slate-400 leading-relaxed">Portal wisata resmi kawasan Pulau Samosir dan Danau Toba. Keajaiban dunia di jantung Sumatera Utara.</p>
+            </div>
+            
+            <!-- Kolom 2: Navigasi -->
+            <div>
+                <h4 class="text-lg font-bold mb-5 text-orange-400">Navigasi</h4>
+                <ul class="text-sm space-y-3 opacity-80">
+                    <li><a href="index.html" class="hover:text-orange-400 transition">Home</a></li>
+                    <li><a href="2. map.html" class="hover:text-orange-400 transition">Explore Map</a></li>
+                    <li><a href="3. destinations.html" class="hover:text-orange-400 transition">Destinations</a></li>
+                    <li><a href="4. culinary.html" class="hover:text-orange-400 transition">Culinary</a></li>
+                </ul>
+            </div>
+            
+            <!-- Kolom 3: Sosial Media -->
+            <div>
+                <h4 class="text-lg font-bold mb-5 text-orange-400">Ikuti Kami</h4>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Kolom 4: Kontak -->
+            <div>
+                <h4 class="text-lg font-bold mb-5 text-orange-400">Hubungi Kami</h4>
+                <div class="text-sm text-slate-400 leading-relaxed space-y-2">
+                    <p><i class="fas fa-map-marker-alt w-5 text-slate-300"></i> Pulau Samosir, Indonesia</p>
+                    <p><i class="fas fa-phone-alt w-5 text-slate-300"></i> +62 821-6190-6044</p>
+                    <p><i class="fas fa-envelope w-5 text-slate-300"></i> info@samosir.id</p>
+                </div>
             </div>
         </div>
         
-        <!-- Kolom 4: Kontak -->
-        <div>
-            <h4 class="text-lg font-bold mb-5 text-orange-400">Hubungi Kami</h4>
-            <div class="text-sm text-slate-400 leading-relaxed space-y-2">
-                <p><i class="fas fa-map-marker-alt w-5 text-slate-300"></i> Pulau Samosir, Indonesia</p>
-                <p><i class="fas fa-phone-alt w-5 text-slate-300"></i> +62 821-6190-6044</p>
-                <p><i class="fas fa-envelope w-5 text-slate-300"></i> info@samosir.id</p>
-            </div>
+        <!-- Copyright -->
+        <div class="max-w-7xl mx-auto text-center pt-8 border-t border-white/10 mt-12 text-xs md:text-sm text-slate-500">
+            © 2026 CilaTeam. Semua hak dilindungi.
         </div>
-    </div>
-    
-    <!-- Copyright -->
-    <div class="max-w-7xl mx-auto text-center pt-8 border-t border-white/10 mt-12 text-xs md:text-sm text-slate-500">
-        © 2026 CilaTeam. Semua hak dilindungi.
-    </div>
     </footer>
+
+    <!-- MODAL OVERLAY -->
+    <div id="recipe-modal" class="fixed inset-0 z-[20000] hidden opacity-0 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+        <!-- MODAL CONTENT -->
+        <div class="bg-white w-full max-w-2xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col">
+            
+            <!-- Header Image & Close Button -->
+            <div class="relative h-48 md:h-64 shrink-0">
+                <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
+                <button onclick="closeModal()" class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Text Content (Scrollable) -->
+            <div class="p-6 md:p-8 overflow-y-auto">
+                <div class="flex items-center gap-3 mb-2">
+                    <span id="modal-category" class="text-amber-600 text-xs font-bold uppercase tracking-widest"></span>
+                </div>
+                <h2 id="modal-title" class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4"></h2>
+                
+                <div class="space-y-6 text-slate-600">
+                    <!-- Deskripsi -->
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-info-circle text-amber-500"></i> Tentang Hidangan
+                        </h4>
+                        <p id="modal-description" class="text-sm leading-relaxed"></p>
+                    </div>
+
+                    <!-- Bahan-bahan -->
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-list-ul text-amber-500"></i> Bahan Utama
+                        </h4>
+                        <ul id="modal-ingredients" class="list-disc list-inside text-sm space-y-1 ml-2"></ul>
+                    </div>
+
+                    <!-- Cara Membuat -->
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-mitten text-amber-500"></i> Cara Pembuatan
+                        </h4>
+                        <div id="modal-steps" class="text-sm leading-relaxed space-y-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="p-4 border-t border-slate-100 flex justify-end">
+                <button onclick="closeModal()" class="px-6 py-2 bg-slate-800 text-white rounded-xl text-sm font-bold hover:bg-slate-700 transition">Tutup</button>
+            </div>
+        </div>
+    </div>
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Init AOS Animations
+        // 1. Init AOS Animations
         AOS.init({ duration: 800, once: true, offset: 50 });
 
-        // Mobile Menu Logic
+        // 2. Mobile Menu Logic
         const menuBtn = document.getElementById('menu-btn');
         const navLinks = document.getElementById('nav-links');
         
@@ -260,6 +311,150 @@
             const icon = menuBtn.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
+        });
+
+        // 3. Modal / Popup Logic
+        const culinaryData = {
+            arsik: {
+                title: "Ikan Mas Arsik",
+                category: "Menu Utama / Upacara Adat",
+                image: "src/Kuliner/arsik.jpg",
+                description: "Ikan mas bumbu kuning khas Batak yang dimasak perlahan hingga kering dengan bumbu andaliman, asam cikala, dan bawang Batak. Rasanya gurih, asam, dan pedas getir.",
+                ingredients:[
+                    "1 kg Ikan Mas segar (utuh)",
+                    "Andaliman (merica Batak)",
+                    "Asam Cikala (buah kecombrang)",
+                    "Bunga Rias/Kecombrang",
+                    "Bawang Batak (Lokio)",
+                    "Kunyit, Jahe, Lengkuas, dan Cabai"
+                ],
+                steps: `1. Bersihkan ikan mas namun biarkan sisiknya (tradisi adat).<br>
+                        2. Haluskan bumbu kuning (kunyit, jahe, cabai, lengkuas) dan andaliman.<br>
+                        3. Tata batang kecombrang dan kacang panjang di dasar wajan sebagai alas ikan.<br>
+                        4. Letakkan ikan di atasnya, siram dengan bumbu halus dan air.<br>
+                        5. Masak dengan api kecil hingga air menyusut dan bumbu meresap sempurna ke dalam ikan.`
+            },
+            saksang: {
+                title: "Saksang",
+                category: "Menu Utama",
+                image: "src/Kuliner/saksang.jpg",
+                description: "Saksang adalah masakan khas Batak yang terbuat dari daging babi (atau kadang anjing/kerbau) yang dicincang kecil dan dimasak dengan rempah-rempah serta santan. Keunikan saksang terletak pada penggunaan andaliman yang kuat.",
+                ingredients:[
+                    "1 kg Daging Babi/Kerbau",
+                    "Darah (opsional) atau kelapa gongseng",
+                    "Andaliman yang dihaluskan",
+                    "Santan kental",
+                    "Serai, Daun Jeruk, dan Lengkuas",
+                    "Bawang merah & putih"
+                ],
+                steps: `1. Tumis bumbu halus bersama serai dan daun jeruk hingga harum.<br>
+                        2. Masukkan daging yang sudah dipotong dadu kecil, aduk hingga berubah warna.<br>
+                        3. Tambahkan andaliman dan santan, masak hingga daging empuk.<br>
+                        4. Masukkan darah (atau kelapa gongseng untuk versi tanpa darah) dan masak hingga kuah mengental.`
+            },
+            naniura: {
+                title: "Dekke Naniura",
+                category: "Sajian Eksklusif / Raja Batak",
+                image: "src/Kuliner/naniura.jpg",
+                description: "Sering disebut sebagai 'Sashimi-nya Batak'. Naniura adalah ikan mas yang 'dimasak' bukan dengan api, melainkan dengan asam jungga yang sangat asam sehingga protein ikan menjadi padat dan matang secara kimiawi.",
+                ingredients:[
+                    "Ikan Mas segar (ukuran sedang)",
+                    "Asam Jungga (jeruk unik Batak)",
+                    "Andaliman",
+                    "Kacang tanah sangrai (haluskan)",
+                    "Kunyit bakar & Jahe",
+                    "Bawang merah goreng"
+                ],
+                steps: `1. Belah ikan mas dari punggung, buang duri tengahnya.<br>
+                        2. Rendam ikan dengan perasan Asam Jungga murni selama kurang lebih 4-5 jam hingga daging memutih dan kenyal.<br>
+                        3. Haluskan semua bumbu rempah dan kacang tanah.<br>
+                        4. Oleskan bumbu secara merata ke seluruh permukaan ikan yang sudah 'matang' oleh asam.<br>
+                        5. Diamkan sebentar agar bumbu meresap, sajikan dingin.`
+            },
+            'mie gomak': {
+                title: "Mie Gomak",
+                category: "Jajanan Populer / Sarapan",
+                image: "src/Kuliner/mie gomak.jpg",
+                description: "Mie lidi tebal yang kenyal disiram dengan kuah kaldu bersantan, kaya akan bumbu kari dan andaliman. Nama mie gomak berasal dari cara penyajiannya yang digenggam dengan tangan.",
+                ingredients:[
+                    "Mie Lidi (Mie Kuning Kering)",
+                    "Santan kelapa",
+                    "Labu siam atau wortel",
+                    "Andaliman",
+                    "Kerupuk merah sebagai pelengkap"
+                ],
+                steps: `1. Rebus mie lidi hingga kenyal, tiriskan dan beri sedikit minyak agar tidak lengket.<br>
+                        2. Buat kuah santan kuning dengan bumbu kari dan andaliman.<br>
+                        3. Sajikan mie di piring, siram dengan kuah santan panas.<br>
+                        4. Mie gomak juga bisa disajikan versi goreng dengan bumbu yang sama.`
+            },
+            'dali ni horbo': {
+                title: "Dali Ni Horbo",
+                category: "Makanan Tradisional Unik",
+                image: "src/Kuliner/dali ni horbo.jpg",
+                description: "Olahan susu kerbau segar yang dimasak hingga menggumpal menyerupai keju lembut, biasanya dibumbui dengan sari daun pepaya dan rempah kuning. Sangat gurih dan alami.",
+                ingredients:[
+                    "Susu kerbau segar",
+                    "Air perasan daun pepaya (untuk menghilangkan bau amis)",
+                    "Air perasan nenas (untuk penggumpalan)"
+                ],
+                steps: `1. Rebus susu kerbau segar dengan api kecil agar tidak pecah berantakan.<br>
+                        2. Campurkan air perasan nenas atau daun pepaya.<br>
+                        3. Tunggu hingga susu mengental dan menggumpal seperti tahu/keju lembut.<br>
+                        4. Sajikan begitu saja atau dimasak kembali dengan bumbu arsik.`
+            }
+        };
+
+        const modal = document.getElementById('recipe-modal');
+        const modalContent = modal.querySelector('.bg-white');
+
+        function openModal(key) {
+            const data = culinaryData[key];
+            if (!data) return;
+
+            // Masukkan data ke dalam modal
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-category').innerText = data.category;
+            document.getElementById('modal-image').src = data.image;
+            document.getElementById('modal-description').innerText = data.description;
+            
+            // Loop bahan-bahan
+            const ingredientsList = document.getElementById('modal-ingredients');
+            ingredientsList.innerHTML = data.ingredients.map(item => `<li>${item}</li>`).join('');
+            
+            // Masukkan step-step masakan
+            document.getElementById('modal-steps').innerHTML = data.steps;
+
+            // Tampilkan Modal dengan animasi
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+            
+            // Stop scroll background
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            // Tutup Modal dengan animasi
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            modal.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                // Kembalikan scroll background
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Tutup modal saat user menekan area luar (hitam) modal
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
     </script>
 </body>
