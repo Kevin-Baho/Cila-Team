@@ -38,7 +38,7 @@ Jika Anda ingin menjalankan atau memodifikasi kode ini di komputer Anda, ikuti l
 ## Catatan Penting (Disclaimer)
 Proyek ini saat ini difokuskan pada **Desain Antarmuka (Front-End/UI)**. Oleh karena itu, beberapa fitur fungsional tingkat lanjut—seperti fitur pemrosesan pesan pada **Chatbot AI**—masih berupa tampilan visual (*mockup UI*) saja dan belum bisa membalas pesan secara nyata. 
 Untuk mengaktifkan fitur *bot* tersebut sepenuhnya, diperlukan pengembangan sistem *Back-End*, logika algoritma, dan integrasi API (seperti OpenAI/Dialogflow) di tahap pengembangan selanjutnya.
-Tetapi untuk fitur map interaktif sudah bisa digunakan.
+Tetapi untuk fitur map interaktif, pencarian dan juga pengelompokan lokasi sudah bisa digunakan.
 
 ## Tim Pengembang
 Desain dan kode ini dikembangkan oleh **CilaTeam** dan belum pernah dibuat ke lomba apapun:
