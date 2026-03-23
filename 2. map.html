@@ -499,11 +499,56 @@
 </div>
 </footer>
 
-<!-- Floating Contact -->
-<a href="https://wa.me/6282161906044?text=Halo%20kakak%20Cindy%20Cantik,%20aku%20mau%20bertanya%20nih." class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition-all z-[9999] hover:scale-110 group" target="_blank">
-<i class="fab fa-whatsapp text-2xl"></i>
-<span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-bold whitespace-nowrap text-sm">Ada Pertanyaan?</span>
-</a>
+<!-- ================= FLOATING ACTION BUTTONS ================= -->
+<div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] flex flex-col items-end gap-3 md:gap-4">
+        
+    <!-- Chatbot Window (Awalnya disembunyikan dengan scale-0) -->
+    <div id="chat-window" class="absolute bottom-full mb-4 right-0 w-[85vw] sm:w-80 h-[400px] md:h-[450px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right scale-0 opacity-0 border border-slate-200">
+        <!-- Header Chat -->
+        <div class="bg-blue-900 text-white p-4 flex justify-between items-center shadow-md z-10">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-sm"><i class="fas fa-robot"></i></div>
+                <div>
+                    <h4 class="font-bold text-sm">Samosir AI</h4>
+                    <p class="text-[10px] text-blue-200">Online | Siap membantu</p>
+                </div>
+            </div>
+            <button id="close-chat" class="text-white hover:text-orange-400 transition"><i class="fas fa-times text-lg"></i></button>
+        </div>
+        
+        <!-- Isi Chat -->
+        <div class="flex-1 bg-slate-50 p-4 overflow-y-auto flex flex-col gap-3 text-sm" id="chat-body">
+            <!-- Chat AI -->
+            <div class="flex justify-start">
+                <div class="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-2xl rounded-tl-sm shadow-sm max-w-[85%] leading-relaxed">
+                    Horas! 👋 Saya asisten virtual Samosir. Ada yang bisa saya bantu tentang wisata Danau Toba hari ini?
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Chat -->
+        <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+            <input type="text" placeholder="Ketik pesan..." class="flex-1 bg-slate-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition text-slate-700">
+            <button class="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center hover:bg-orange-600 transition shadow-md">
+                <i class="fas fa-paper-plane text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Tombol Chatbot -->
+    <button id="chatbot-btn" class="bg-blue-600 text-white p-3 md:p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-700 transition-all hover:-translate-y-1 group relative">
+        <!-- Teks Hover dibuat muncul ke arah kiri agar tidak nabrak layar -->
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:mr-3 transition-all duration-300 font-bold whitespace-nowrap text-sm md:text-base flex items-center">Tanya AI</span>
+        <i class="fas fa-robot text-2xl md:text-3xl w-6 md:w-8 text-center" id="chatbot-icon"></i>
+    </button>
+
+    <!-- Tombol WhatsApp -->
+    <a href="https://wa.me/6282161906044?text=Halo%20kakak%20Cindy%20Cantik,%20aku%20mau%20bertanya%20nih." class="bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition-all hover:-translate-y-1 group relative" target="_blank">
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:mr-3 transition-all duration-300 font-bold whitespace-nowrap text-sm md:text-base flex items-center">WhatsApp</span>
+        <i class="fab fa-whatsapp text-2xl md:text-3xl w-6 md:w-8 text-center"></i>
+    </a>
+
+</div>
 
 <!-- Scripts Khusus UI (Script Map dihapus dari sini karena sudah ada di atas) -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -521,6 +566,27 @@ menuBtn.addEventListener('click', () => {
     icon.classList.toggle('fa-bars');
     icon.classList.toggle('fa-times');
 });
+        // ================= CHATBOT TOGGLE LOGIC =================
+        const chatbotBtn = document.getElementById('chatbot-btn');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatBtn = document.getElementById('close-chat');
+        const chatbotIcon = document.getElementById('chatbot-icon');
+
+        function toggleChat() {
+            // Toggle Chat Window
+            chatWindow.classList.toggle('scale-0');
+            chatWindow.classList.toggle('opacity-0');
+            
+            // Animasi ganti ikon Robot ke X
+            if(chatWindow.classList.contains('scale-0')) {
+                chatbotIcon.classList.replace('fa-times', 'fa-robot');
+            } else {
+                chatbotIcon.classList.replace('fa-robot', 'fa-times');
+            }
+        }
+
+        chatbotBtn.addEventListener('click', toggleChat);
+        closeChatBtn.addEventListener('click', toggleChat);
 </script>
 </body>
 </html>
