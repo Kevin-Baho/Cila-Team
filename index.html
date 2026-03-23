@@ -32,7 +32,7 @@
 <body class="bg-slate-50 text-slate-800">
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="fixed top-0 w-full z-[10000] flex justify-between items-center px-6 md:px-12 py-6 bg-transparent">
+    <nav id="navbar" class="fixed top-0 w-full z-[10000] flex justify-between items-center px-6 md:px-12 py-4 bg-transparent">
         <a href="index.html" class="z-50">
             <img src="src/logo.png" alt="Logo Samosir" id="nav-logo" class="h-8 md:h-10 brightness-0 invert transition-all duration-300">
         </a>
@@ -42,8 +42,8 @@
             <i class="fas fa-bars text-2xl"></i>
         </button>
 
-        <!-- Nav Links -->
-        <div id="nav-links" class="fixed inset-0 bg-blue-950 flex flex-col items-center justify-center gap-8 text-xl font-semibold text-white transition-transform transform translate-x-full md:relative md:inset-auto md:bg-transparent md:flex-row md:translate-x-0 md:text-sm lg:text-base md:gap-6 lg:gap-8 w-full md:w-auto">
+        <!-- Nav Links (SUDAH DISESUAIKAN UKURANNYA SAMA DENGAN MAP) -->
+        <div id="nav-links" class="fixed inset-0 bg-blue-950 flex flex-col items-center justify-center gap-8 text-lg font-semibold text-white transition-transform transform translate-x-full md:relative md:inset-auto md:bg-transparent md:flex-row md:translate-x-0 md:text-sm md:gap-6 lg:gap-8 w-full md:w-auto">
             <a href="index.html" class="nav-link text-orange-400 font-bold underline decoration-2 underline-offset-8">Home</a>
             <a href="2. map.html" class="nav-link text-white hover:text-orange-400">Explore Map</a>
             <a href="3. destinations.html" class="nav-link text-white hover:text-orange-400">Destinations</a>
@@ -404,11 +404,11 @@
             });
         });
 
-        // Navbar Scroll Effect
+        // Navbar Scroll Effect (SUDAH DIPERBAIKI: PADDING TIDAK BERUBAH-UBAH)
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-white', 'shadow-md', 'py-3', 'md:py-4');
-                navbar.classList.remove('bg-transparent', 'py-6');
+                navbar.classList.add('bg-white', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
                 navLogo.classList.remove('brightness-0', 'invert');
                 menuBtn.classList.remove('text-white');
                 menuBtn.classList.add('text-slate-800');
@@ -420,8 +420,8 @@
                     }
                 });
             } else {
-                navbar.classList.remove('bg-white', 'shadow-md', 'py-3', 'md:py-4');
-                navbar.classList.add('bg-transparent', 'py-6');
+                navbar.classList.remove('bg-white', 'shadow-md');
+                navbar.classList.add('bg-transparent');
                 navLogo.classList.add('brightness-0', 'invert');
                 
                 if(navLinksContainer.classList.contains('translate-x-full')) {
@@ -437,6 +437,7 @@
                 });
             }
         });
+        
         // ================= CHATBOT TOGGLE LOGIC =================
         const chatbotBtn = document.getElementById('chatbot-btn');
         const chatWindow = document.getElementById('chat-window');
