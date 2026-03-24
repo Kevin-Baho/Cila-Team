@@ -1,46 +1,28 @@
-# Samosir | Portal Wisata Danau Toba (Web Design)
-Proyek ini adalah desain *Front-End* untuk website portal pariwisata interaktif yang menampilkan keindahan alam, budaya, kuliner, dan destinasi wisata di Pulau Samosir dan kawasan Danau Toba.
+# JUDUL KARYA: Samosir | Portal Wisata Danau Toba (Web Design)
 
-## Live Demo
-Website ini telah di-hosting menggunakan **GitHub Pages** karena aksesibilitasnya yang simpel, ringan, dan efisien.  
-👉 **[Klik di sini untuk melihat Live Demo](https://kevin-baho.github.io/Cila-Team/index.html)**
+## Institusi
+Institut Teknologi Del
 
-## Cuplikan Layar (Screenshots)
-**Tampilan Desktop / Laptop:**
-![Tampilan Laptop](image.png)
+## Anggota Tim
+- Ketua: Risky Kevin Naibaho
+- Anggota 1: Cindy Abgiael
 
-**Tampilan Mobile / HP:**
-![Tampilan HP](image-1.png)
+## Deskripsi Karya
+Karya ini adalah desain antarmuka (*Front-End Web Design*) untuk portal pariwisata interaktif kawasan Pulau Samosir dan Danau Toba. 
+- **Latar Belakang:** Danau Toba merupakan salah satu Destinasi Pariwisata Super Prioritas (DPSP), namun penyajian informasi pariwisata yang modern dan terpusat masih perlu ditingkatkan agar mampu menarik minat wisatawan secara maksimal.
+- **Tujuan:** Merancang website pariwisata yang modern, responsif, dan *user-friendly* untuk menampilkan keindahan alam, destinasi wisata, kuliner, serta nilai-nilai budaya suku Batak Toba.
+- **Manfaat:** Memberikan kemudahan akses informasi bagi calon wisatawan, membantu pelestarian budaya secara digital, serta membantu mempromosikan UMKM wisata lokal.
+- **Pemilihan Subtema:** Karya ini berfokus pada digitalisasi pariwisata dan pelestarian budaya lokal dengan memanfaatkan teknologi website sebagai media utama promosi.
 
-## Fitur Utama
-- **Desain Modern & Responsif:** Tampilan UI/UX yang dapat menyesuaikan dengan rapi di berbagai ukuran layar (HP, Tablet, maupun Laptop).
-- **Scroll Animations:** Efek animasi mulus yang muncul saat layar di-scroll menggunakan library AOS (*Animate On Scroll*).
-- **Interactive Floating Action:** Tersedia *Floating Button* di pojok layar yang berisi pintasan ke WhatsApp dan jendela purwarupa (UI) Chatbot.
-- **Navigasi Lengkap:** Menu interaktif yang memudahkan pengunjung menjelajahi Peta, Destinasi, Kuliner, Galeri, dan Budaya Samosir.
+## Link Website
+https://kevin-baho.github.io/Cila-Team/index.html
 
-## Teknologi yang Digunakan
-Proyek ini dibangun murni menggunakan teknologi antarmuka web standar:
-- **HTML5 & CSS3**
-- **Tailwind CSS** (via CDN untuk *styling* cepat)
-- **JavaScript (Vanilla)** (Untuk logika *toggle* menu dan interaksi *floating button*)
-- **AOS Library** (Untuk animasi elemen)
-- **FontAwesome** (Untuk aset ikon)
-- **Google Fonts** (Menggunakan *font* Plus Jakarta Sans)
+## tambahan (Cara Menjalankan Project Secara Lokal)
+1. Download file ZIP dari repository ini.
+2. Extract file ZIP yang sudah didownload ke dalam perangkat Anda.
+3. **Pastikan internet atau paket data aktif** (Hal ini wajib karena tata letak dan ikon desain dipanggil secara *online* dari CDN).
+4. Buka folder hasil ekstraksi, lalu klik 2 kali pada file `index.html` untuk menjalankannya di browser.
+5. Atau, jika tidak ingin mengekstraknya, silakan buka langsung tautan pada **Link Website** di atas.
 
-## Cara Menjalankan Project Secara Lokal
-Jika Anda ingin menjalankan atau memodifikasi kode ini di komputer Anda, ikuti langkah berikut:
-1. Unduh proyek ini dalam format ZIP (Klik tombol `Code` > `Download ZIP`).
-2. Ekstrak file ZIP yang sudah diunduh ke dalam folder komputer Anda.
-3. **Pastikan perangkat Anda terhubung ke internet** (Ini wajib, karena proyek ini memanggil CSS Tailwind, animasi, dan ikon secara *online* melalui CDN).
-4. Buka folder hasil ekstraksi, lalu klik ganda (*double-click*) pada file `index.html` untuk membukanya di *browser* Anda.
-5. *(Opsional)* Jika tidak ingin mengunduh file, Anda bisa langsung mengunjungi tautan **Live Demo** di atas.
-
-## Catatan Penting (Disclaimer)
-Proyek ini saat ini difokuskan pada **Desain Antarmuka (Front-End/UI)**. Oleh karena itu, beberapa fitur fungsional tingkat lanjut—seperti fitur pemrosesan pesan pada **Chatbot AI**—masih berupa tampilan visual (*mockup UI*) saja dan belum bisa membalas pesan secara nyata. 
-Untuk mengaktifkan fitur *bot* tersebut sepenuhnya, diperlukan pengembangan sistem *Back-End*, logika algoritma, dan integrasi API (seperti OpenAI/Dialogflow) di tahap pengembangan selanjutnya.
-Tetapi untuk fitur map interaktif, pencarian dan juga pengelompokan lokasi sudah bisa digunakan.
-
-## Tim Pengembang
-Desain dan kode ini dikembangkan oleh **CilaTeam** dan belum pernah dibuat ke lomba apapun:
-- **Cindy** | WhatsApp: [+62 821-6190-6044](https://wa.me/6282161906044)
-- **Risky** | WhatsApp: [+62 823-6143-9414](https://wa.me/6282361439414)
+## Catatan Penting, tambahan juga:
+Karya ini berfokus murni pada **Desain Web / Antarmuka (Front-End)**. Oleh karena itu, beberapa interaksi fungsional seperti **Chat-bot AI** masih berupa tampilan visual desain saja (*mockup*) dan belum bisa membalas pesan. Untuk mengaktifkan fitur chat-bot tersebut sepenuhnya, dibutuhkan pengamatan serta penulisan kode (*Back-End* / integrasi API) yang lebih lanjut di luar cakupan perlombaan/tugas web desain ini.
